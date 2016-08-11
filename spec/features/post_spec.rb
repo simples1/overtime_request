@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 describe 'navigate' do
+  before do
+   user = User.create(email: "aa@aa.com", password: "12345678", password_confirmation: "12345678", first_name: "jim", last_name: "hum")
+   login_as(user, :scope => :user)
+  end
   describe 'index' do
   	it "can be reached" do 
   		visit posts_path
@@ -16,8 +20,6 @@ describe 'navigate' do
 
    describe 'creation' do
    	before do
-			user = User.create(email: "aa@aa.com", password: "12345678", password_confirmation: "12345678", first_name: "jim", last_name: "hum")
-			login_as(user, :scope => :user)
   		visit new_post_path
    	end
 
