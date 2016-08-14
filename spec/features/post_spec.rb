@@ -28,13 +28,23 @@ describe 'navigate' do
     end
   end
 
+  describe do 
+    it "has a link from the homepage " do 
+      visit posts_path
+
+      click_link("new_post_from_nav")
+      expect(page.status_code).to eq(200)
+    end  
+
+  end
+
 
    describe 'creation' do
    	before do
   		visit new_post_path
    	end
 
-  	it "has a new that can be reached" do 
+  	it "has a new form that can be reached" do 
   		expect(page.status_code).to eq(200)
   	end
 
