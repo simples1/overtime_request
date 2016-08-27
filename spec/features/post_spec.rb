@@ -26,6 +26,18 @@ describe 'navigate' do
       visit posts_path
       expect(page).to have_content(/posts1|post2/)
     end
+
+    it "has a scope so that only post creators can see their posts" do 
+       post = Post.create(date: Date.yesterday, rationale: "hello anything", user_id: @user.id)
+       post2 = Post.create(date: Date.yesterday, rationale: "thats cool", user_id: @user.id)
+
+       other_user = User.create( first_name: "non", last_name: "authorised", email: "pp@pp.com", password: "12345678", password_confirmation: "12345678")
+
+       post_from_other_user= Post.create( date: Date.yesterday, rationale: "where you want", user_id: other_user.id)
+
+        visit posts_path
+       expect(page).to_not have_content("where you want")
+    end
   end
 
   describe do 
@@ -40,6 +52,7 @@ describe 'navigate' do
   describe do 
     it "delete" do 
       @post = FactoryGirl.create(:post)
+      @post.update(user_id: @user.id)
       visit posts_path
 
       click_link("delete_post_#{@post.id}_from_index")
