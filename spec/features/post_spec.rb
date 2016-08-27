@@ -80,8 +80,6 @@ describe 'navigate' do
       @post = Post.create(    date: Date.today, rationale: "Anythion ratioanl", user_id: @user.id)
     end
 
-
-
     it "can be edited" do
       visit edit_post_path(@post)
 
