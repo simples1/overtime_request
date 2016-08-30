@@ -14,7 +14,12 @@ puts "1 adminuser created"
 puts "1 user created"
 
 100.times do |post|
+	if post.odd?
+		Post.create(date: Date.today, rationale: "#{post} Anything Content", user_id: @user.id, status: 1)
+	end
+
 	Post.create(date: Date.today, rationale: "#{post} Anything Content", user_id: @user.id)
+
 end
 
 puts "100 posts created"
