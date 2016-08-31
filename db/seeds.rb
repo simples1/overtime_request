@@ -15,10 +15,10 @@ puts "1 user created"
 
 100.times do |post|
 	if post.odd?
-		Post.create(date: Date.today, rationale: "#{post} Anything Content", user_id: @user.id, status: 1)
+		Post.create(date: Date.today, rationale: "#{post} Anything Content", user_id: @user.id, status: 1, overtime_request: 2.5)
 	end
 
-	Post.create(date: Date.today, rationale: "#{post} Anything Content", user_id: @user.id)
+	Post.create(date: Date.today, rationale: "#{post} Anything Content", user_id: @user.id, overtime_request: 3.5)
 
 end
 
