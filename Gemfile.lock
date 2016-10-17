@@ -249,6 +249,7 @@ DEPENDENCIES
   gritter (= 1.2.0)
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   pg (~> 0.15)
   puma
   pundit
@@ -263,4 +264,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.12.0.rc
+   1.13.5
